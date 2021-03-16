@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tạo bàn cờ caro đơn giản</title>
+</head>
+<body>
+<h3>Caro game simple</h3>
+<p id="caroGame"></p>
+<button type="button" id="change" onclick="changeValue()">Change value</button>
+
+<script>
+    let b = document.getElementById('caroGame');
+    let board = [];
+    let data = '';
+    // Hiển thị bàn cờ
+    for (let i = 0 ; i < 5 ; i++) {
+        board[i] = [0, 0, 0, 0, 0]    // mảng đa chiều, tạo 5 dòng là 5 phần tử board[i];
+    }
+      console.log(board);
+         // Hien thi ra
+    for (let i = 0 ; i < 5; i++) {
+        data += '<br>';
+        for (let j = 0; j < 5; j++) {
+            data += board[i][j] + "&nbsp;&nbsp;";
+        }
+    }
+
+    b.innerHTML = data;
+     // Xử lý sự kiên ấn nút change value
+    function changeValue() {
+        let positonX = prompt('X: ');
+        let positonY = prompt('Y: ');
+        data = '';
+        board[positonX][positonY] = 'Hung';
+        console.log(board);
+        for (let i = 0; i < 5; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 5; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp";
+            }
+        }
+        b.innerHTML = '<hr>' + data;
+    }
+
+  /*  logic: b1: đầu tiên gán cho mảng ban đầu thành mảng 5 dòng 5 cột (mỗi phần tử = 0),
+             b2: hiển thị mảng ban đầu là 5 dòng và 5 cột ra màn hình,
+             b3: sau đó thay đổi phần tử ở vị trí [x][y] lúc ấn ô promt (bằng x),
+             b4: sau đó lại hiển thị giao diện mảng khi thay đổi ra ngoài màn hình.
+   */
+
+
+
+
+
+</script>
+
+</body>
+</html>
